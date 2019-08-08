@@ -1,0 +1,42 @@
+Analysis of "100":                                                                             
+Token Type     Text                                                                            
+-------------- ----                                                                            
+NumericLiteral 100                                                                             
+                                                                                               
+                                                                                               
+Analysis of "100+":                                                                            
+Token Type     Text                                                                            
+-------------- ----                                                                            
+NumericLiteral 100                                                                             
+Operator       +                                                                               
+                                                                                               
+                                                                                               
+Analysis of "100 ":                                                                            
+Token Type     Text                                                                            
+-------------- ----                                                                            
+NumericLiteral 100                                                                             
+                                                                                               
+                                                                                               
+Analysis of "100L":                                                                            
+Token Type   Text                                                                              
+------------ ----                                                                              
+Error        100L                                                                              
+                                                                                               
+                                                                                               
+Analysis of "+-*/":                                                                            
+Token Type   Text                                                                              
+------------ ----                                                                              
+Operator     +                                                                                 
+Operator     -                                                                                 
+Operator     *                                                                                 
+Operator     /                                                                                 
+                                                                                               
+                                                                                               
+Analysis of "()":                                                                              
+Token Type   Text                                                                              
+------------ ----                                                                              
+OpenParens   (                                                                                 
+CloseParens  )                                                                                 
+                                                                                               
+                                                                                               
+                                                                                               
