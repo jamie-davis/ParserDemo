@@ -39,4 +39,26 @@ OpenParens   (
 CloseParens  )                                                                                 
                                                                                                
                                                                                                
+Analysis of "":                                                                                
+Token Type   Text                                                                              
+------------ ----                                                                              
+                                                                                               
+                                                                                               
+Analysis of "NULL":                                                                            
+Token Type   Text                                                                              
+------------ ----                                                                              
+                                                                                               
+                                                                                               
+Analysis of "(3 *5)+  49":                                                                     
+Token Type     Text                                                                            
+-------------- ----                                                                            
+OpenParens     (                                                                               
+NumericLiteral 3                                                                               
+Operator       *                                                                               
+NumericLiteral 5                                                                               
+CloseParens    )                                                                               
+Operator       +                                                                               
+NumericLiteral 49                                                                              
+                                                                                               
+                                                                                               
                                                                                                
