@@ -6,6 +6,7 @@ namespace Parser.LexicalAnalysis
         NumericLiteral,
         OpenParens,
         CloseParens,
-        Operator
+        Operator, 
+        Terminator
     }
 }
