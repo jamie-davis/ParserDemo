@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Parser.LexicalAnalysis;
 using Parser.Parsing;
 
@@ -13,12 +14,25 @@ namespace Parser
             var pos = new TokenKeeper(tokens);
             if (TryTakeCalc(pos, out var calculation) && pos.Finished)
             {
+                var error = AllNodes(calculation).FirstOrDefault(n => n is ErrorNode);
+                if (error != null)
+                    return new ArithmeticExpression(error.Describe());
+
                 return new ArithmeticExpression(calculation);
             }
             else
             {
                 var errorMessage = $"Unable to interpret calculation at \"{pos.RemainingData()}\"";
                 return new ArithmeticExpression(errorMessage);
+            }
+        }
+
+        private static IEnumerable<ExpressionNode> AllNodes(ExpressionNode calculation)
+        {
+            yield return calculation;
+            foreach (var node in calculation.ContainedNodes().SelectMany(n => AllNodes(n)))
+            {
+                yield return node;
             }
         }
 
@@ -90,7 +104,7 @@ namespace Parser
              && TryTakeOperator(work, out var op)
              && work.IsNext(TokenType.Operator))
             {
-                node = new ErrorNode("invalid operator expression", pos.RemainingData());
+                node = new ErrorNode("Invalid operator expression", pos.RemainingData());
                 pos.DiscardWhile(TokenType.Operator, TokenType.NumericLiteral);
                 return true;
             }

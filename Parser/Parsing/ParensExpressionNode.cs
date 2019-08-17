@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Parser.Parsing;
 
 namespace Parser.Parsing
@@ -16,5 +17,11 @@ namespace Parser.Parsing
         {
             return $"({_calc.Describe()})";
         }
+        
+        internal override IEnumerable<ExpressionNode> ContainedNodes()
+        {
+            yield return _calc;
+        }
+
     }
 }
