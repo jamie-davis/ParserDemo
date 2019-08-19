@@ -1,13 +1,13 @@
 using Xunit;
-using Parser;
 using TestConsoleLib;
 using TestConsoleLib.Testing;
 using TestConsole.OutputFormatting;
 using System.Linq;
+using Parser;
 
 namespace ParserTests
 {
-    public class TestParser
+    public class TestParserBNF
     {
         [Fact]
         public void InputIsConverted()
@@ -16,23 +16,26 @@ namespace ParserTests
             var testStrings = new [] {
                 "1",
                 "32-5",
-                "(100 * 3)",
-                "100 + (3 * 5)",
-                "(3 * 5) + 100",
+                "(3 *5)+  49",
                 "1 + 2 + 3",
-                "1 + (3 * (5 + 6))",
-                "1 +",
-                "(1 + 3",
-                "(",
+                "145 * ((63/2 + 5) - 16)",
+                "2 * 2 * (2 * 2)",
+                "1 + +",
+                "(1 + 5",
+                "1 2",
+                "+ 1",
+                "((",
                 ")",
-                "((1 + 2) * 3",
-                "(1 + 2) * 3)",
-                "5 + (10)"
+                "+",
+                "",
+                "(",
+                "145 * ((63/2 + 5) - 16))",
+                "14.5 * ((6.3/2.4 + 5.5) - 1.6)",
             };
 
             //Act
             var results = testStrings
-                .Select(s => new { String = s, Result = ArithmeticParser.Parse(s)})
+                .Select(s => new { String = s, Result = ArithmeticParserBNF.Parse(s)})
                 .ToList();
 
             //Assert
