@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Parser.LexicalAnalysis;
@@ -14,10 +13,6 @@ namespace Parser
             var pos = new TokenKeeper(tokens);
             if (TryTakeCalc(pos, out var calculation) && pos.Finished)
             {
-                var error = AllNodes(calculation).FirstOrDefault(n => n is ErrorNode);
-                if (error != null)
-                    return new ArithmeticExpression(error.Describe());
-
                 return new ArithmeticExpression(calculation);
             }
             else
