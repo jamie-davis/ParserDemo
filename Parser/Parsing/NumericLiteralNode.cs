@@ -22,5 +22,10 @@ namespace Parser.Parsing
         {
             yield break;
         }
+
+        internal override decimal Compute()
+        {
+            return _value;
+        }
     }
 }

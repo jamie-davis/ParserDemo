@@ -25,6 +25,11 @@ namespace Parser
 
         public bool IsValid {get;}
 
-        public string ErrorMessage {get;}    
+        public string ErrorMessage {get;}
+
+        public decimal Compute()
+        {
+            return _calculation.Compute();
+        }
     }
 }

@@ -23,5 +23,9 @@ namespace Parser.Parsing
             yield return _calc;
         }
 
+        internal override decimal Compute()
+        {
+            return _calc.Compute();    
+        }
     }
 }

@@ -7,5 +7,7 @@ namespace Parser.Parsing
         internal abstract string Describe();
 
         internal abstract IEnumerable<ExpressionNode> ContainedNodes();
+      
+        internal abstract decimal Compute();
     }
 }
