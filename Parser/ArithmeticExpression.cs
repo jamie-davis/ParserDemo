@@ -1,15 +1,14 @@
-using System;
 using Parser.Parsing;
 
 namespace Parser
 {
     public class ArithmeticExpression
     {
-        private ExpressionNode _calculation;
+        internal ExpressionNode Calculation {get;}
 
         internal ArithmeticExpression(ExpressionNode calculation)
         {
-            _calculation = calculation;
+            Calculation = calculation;
             IsValid = true;
         }
         internal ArithmeticExpression(string errorMessage)
@@ -20,16 +19,11 @@ namespace Parser
 
         public string Describe()
         {
-            return _calculation?.Describe();
+            return Calculation?.Describe();
         }
 
         public bool IsValid {get;}
 
         public string ErrorMessage {get;}
-
-        public decimal Compute()
-        {
-            return _calculation.Compute();
-        }
     }
 }

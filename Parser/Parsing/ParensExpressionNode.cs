@@ -4,28 +4,23 @@ using Parser.Parsing;
 
 namespace Parser.Parsing
 {
-    internal class ParensExpressionNode : ExpressionNode
+    sealed internal class ParensExpressionNode : ExpressionNode
     {
-        private ExpressionNode _calc;
+        internal ExpressionNode Calculation {get;}
 
-        public ParensExpressionNode(ExpressionNode calc)
+        public ParensExpressionNode(ExpressionNode calculation)
         {
-            _calc = calc;
+            Calculation = calculation;
         }
 
         internal override string Describe()
         {
-            return $"({_calc.Describe()})";
+            return $"({Calculation.Describe()})";
         }
         
         internal override IEnumerable<ExpressionNode> ContainedNodes()
         {
-            yield return _calc;
-        }
-
-        internal override decimal Compute()
-        {
-            return _calc.Compute();    
+            yield return Calculation;
         }
     }
 }

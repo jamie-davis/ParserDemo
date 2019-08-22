@@ -4,28 +4,23 @@ using Parser.Parsing;
 
 namespace Parser.Parsing
 {
-    internal class NumericLiteralNode : ExpressionNode
+    internal sealed class NumericLiteralNode : ExpressionNode
     {
-        private decimal _value;
+        internal decimal Value {get;}
 
         public NumericLiteralNode(Token token)
         {
-            _value = decimal.Parse(token.Text);
+            Value = decimal.Parse(token.Text);
         }
 
         internal override string Describe()
         {
-            return _value.ToString();
+            return Value.ToString();
         }
 
         internal override IEnumerable<ExpressionNode> ContainedNodes()
         {
             yield break;
-        }
-
-        internal override decimal Compute()
-        {
-            return _value;
         }
     }
 }
