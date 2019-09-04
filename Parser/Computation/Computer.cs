@@ -5,7 +5,7 @@ using Parser.Parsing;
 
 namespace Parser.Computation
 {
-    internal static class Computer
+    public static class Computer
     {
         private static Dictionary<string, int> OperatorPrecedence = new Dictionary<string, int>
         {
@@ -76,7 +76,7 @@ namespace Parser.Computation
 
         #endregion
 
-        internal static decimal Compute(ArithmeticExpression input)
+        public static decimal Compute(ArithmeticExpression input)
         {
             var converted = Convert(input.Calculation);
             return converted?.Compute() ?? 0M;
